@@ -12,7 +12,7 @@ exports.createComment = async (req, res) => {
     // const comment = new Comment({ blogId, text });
     const comment = new Comment({
       text,
-      blog: blogId,
+      blogId: blogId,
       user: req.user.id,
     });
     await comment.save();
