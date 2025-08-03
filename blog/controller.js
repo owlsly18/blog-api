@@ -20,16 +20,6 @@ exports.createBlog = async (req, res) => {
   }
 };
 
-// // Get all blogs (basic, without filters for now)
-// exports.getBlogs = async (req, res) => {
-//   try {
-//     const blogs = await Blog.find().sort({ createdAt: -1 });
-//     res.json({ success: true, data: blogs });
-//   } catch (err) {
-//     res.status(500).json({ success: false, error: err.message });
-//   }
-// };
-
 exports.getBlogs = async (req, res) => {
   try {
     const { tag, search, sort = 'desc', page = 1, limit = 10 } = req.query;
