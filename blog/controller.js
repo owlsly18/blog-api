@@ -109,10 +109,11 @@ exports.deleteBlog = async (req, res) => {
     if (blog.user.toString() !== req.user.id)
       return res.status(403).json({ message: 'Unauthorized' });
 
-    await blog.remove();
+    await blog.deleteOne(); // <-- change from remove() to deleteOne()
 
     res.json({ success: true, message: "Blog deleted" });
   } catch (err) {
     res.status(500).json({ success: false, error: err.message });
   }
 };
+
